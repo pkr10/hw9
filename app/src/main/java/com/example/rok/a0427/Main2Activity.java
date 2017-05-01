@@ -91,31 +91,49 @@ public class Main2Activity extends AppCompatActivity {
             Addfruit.setOnSetListener(new addfruit.OnSetListener() {
                 @Override
                 public void onSet(String name, int imagno, String price) {
-                    if(c1.isChecked()){
-                        adapter.setFruit(count1, new fruid(name, imagno, price, 1));
-
+                    if(a1.getText().toString().matches("")||e1.getText().toString().matches("")){
+                        Toast.makeText(getApplicationContext(),"다 입력해주요",Toast.LENGTH_LONG).show();
                     }
-                    else{
-                        adapter.setFruit(count1, new fruid(name, imagno, price, 0));
+                    else {
 
+
+                        if (c1.isChecked()) {
+                            adapter.setFruit(count1, new fruid(name, imagno, price, 1));
+
+                        } else {
+                            adapter.setFruit(count1, new fruid(name, imagno, price, 0));
+
+                        }
+
+                        adapter.notifyDataSetChanged();
+                        a1.setText("");
+                        e1.setText("");
+                        b1.setText("ADD");
                     }
-                    adapter.notifyDataSetChanged();
-                    b1.setText("ADD");
 
                 }
             });
             Addfruit.setAddListener(new addfruit.OnAddListener() {
                 @Override
                 public void onAdd(String name, int imagno, String price) {
-                    if(c1.isChecked()){
-                        adapter.addFruit(new fruid(name, imagno, price, 1));
+                    if(a1.getText().toString().matches("")||e1.getText().toString().matches("")){
+                        Toast.makeText(getApplicationContext(),"다 입력해주요",Toast.LENGTH_LONG).show();
+
                     }
-                    else{
-                        adapter.addFruit(new fruid(name, imagno, price, 0));
-                    }
+                    else {
 
 
-                    adapter.notifyDataSetChanged();
+                        if (c1.isChecked()) {
+                            adapter.addFruit(new fruid(name, imagno, price, 1));
+                        } else {
+                            adapter.addFruit(new fruid(name, imagno, price, 0));
+                        }
+
+
+                        adapter.notifyDataSetChanged();
+                        a1.setText("");
+                        e1.setText("");
+                    }
                 }
 
 
