@@ -4,12 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -25,10 +22,6 @@ public class addfruit extends LinearLayout implements View.OnClickListener{
     ImageView img;
     EditText e1;
     Button b1,b2;
-    fruid data;
-    ArrayList<String> item;
-    Fruit fruit;
-    GridView g1;
 
 
     public addfruit(Context context, AttributeSet attrs) {
@@ -53,14 +46,14 @@ public class addfruit extends LinearLayout implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.b_add:
-                if(b1.getText().toString().matches("ADD")) {
+                    if(b1.getText().toString().matches("ADD")) {
 
 
-                    onAddListener.onAdd(t1.getText().toString(), fruid.imagelist[imageno], e1.getText().toString());
-                }
-                else{
-                    onSetListener.onSet(t1.getText().toString(),fruid.imagelist[imageno],e1.getText().toString());
-                }
+                        onAddListener.onAdd(t1.getText().toString(), fruid.imagelist[imageno], e1.getText().toString());
+                    }
+                    else{
+                        onSetListener.onSet(t1.getText().toString(),fruid.imagelist[imageno],e1.getText().toString());
+                    }
 
                 break;
             case R.id.b_next:
